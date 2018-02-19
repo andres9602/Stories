@@ -75,6 +75,11 @@ class Character(models.Model):
 		blank=True
 	)
 	skill = models.ManyToManyField('stories.Skill')
+	story = models.ForeignKey(
+		'stories.Story',
+		on_delete=models.CASCADE,
+		related_name='characters'
+	)
 	slug = models.SlugField()
 
 	def __str__(self):
